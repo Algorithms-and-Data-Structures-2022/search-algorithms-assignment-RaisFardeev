@@ -2,10 +2,23 @@
 
 namespace assignment {
 
-  std::optional<std::pair<int, int>> two_sum(const std::vector<int>& arr, int sum) {
+  std::optional<std::pair<int, int>> two_sum(const std::vector<int>& data, int sum) {
+    int left = 0;
+    int right = data.size() - 1;
+    int curr;
 
-    // Tips: для создания пары (pair) используйте функцию std::make_pair
-
+    while (left <= right) {
+      curr = data[left] + data[right];
+      if (curr == sum) {
+        return std::make_pair(left, right);
+      }
+      else if (curr > sum) {
+        right--;
+      }
+      else {
+        left++;
+      }
+    }
     return std::nullopt;
   }
 
